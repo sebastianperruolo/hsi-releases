@@ -27,12 +27,14 @@
     });
   };
 
-  const createTemplate = ({ d }) => {
-    const template = d.createElement('template');
+  const createTemplate = ({
+    iframeSrc,
+  }) => {
+    const template = document.createElement('template');
     template.innerHTML = `
           ${STYLES}
           <div class="web-component">
-            <iframe src="https://hsi.pladema.net/blog/"></iframe>
+            <iframe src="${iframeSrc}"></iframe>
           </div>
       `;
 
@@ -42,7 +44,7 @@
   class HSIReleases extends HTMLElement {
     connectedCallback() {
       const template = createTemplate({
-        d: document,
+        iframeSrc: 'https://hsi.pladema.net/blog/',
       });
       this.attachShadow({ mode: 'open' });
       this.shadowRoot.appendChild(template.content.cloneNode(true));
