@@ -1,10 +1,6 @@
 (function (customElements) {
   const STYLES = `
   <style>
-    .web-components {
-      border: 4px dashed rgba(232, 255, 146, 0.72);
-      background-color: rgba(232, 255, 146, 0.05);
-    }
     .web-component iframe {
       border: 0;
       width: 100%;
@@ -14,8 +10,10 @@
   </style>`;
 
   const addEventListenerToIframe = (iframe) => {
-    iframe.addEventListener('load', function () {
-      console.log('El iframe se ha cargado correctamente.');
+    iframe.addEventListener('load', function (event) {
+      console.log('El iframe se ha cargado correctamente.', event);
+      const newSrc = event.target.getAttribute('src');
+      console.log('El atributo src del iframe ha cambiado a:', newSrc);
       // Aquí puedes realizar acciones adicionales una vez que el iframe se haya cargado
       // Acceder al contenido del iframe una vez que se ha cargado
     });
@@ -25,6 +23,7 @@
       console.log('Ha ocurrido un error al cargar el iframe:', event);
       // Puedes manejar el error o realizar acciones adicionales en caso de que falle la carga del iframe
     });
+
   };
 
   const createTemplate = ({
