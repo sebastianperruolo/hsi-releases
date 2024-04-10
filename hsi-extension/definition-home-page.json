@@ -1,0 +1,8 @@
+[
+  {
+    "slot": "SYSTEM_HOME_PAGE",
+    "title": "Releases de HSI",
+    "componentName": "hsi-releases",
+    "url": "./main.js"
+  }
+]
