@@ -11,16 +11,16 @@
 
   const addEventListenerToIframe = (iframe) => {
     iframe.addEventListener('load', function (event) {
-      console.log('El iframe se ha cargado correctamente.', event);
+      console.log('iframe: se ha cargado correctamente.', event);
       const newSrc = event.target.getAttribute('src');
-      console.log('El atributo src del iframe ha cambiado a:', newSrc);
+      console.log('iframe: el atributo src es:', newSrc);
       // Aquí puedes realizar acciones adicionales una vez que el iframe se haya cargado
       // Acceder al contenido del iframe una vez que se ha cargado
     });
 
     // Añade un listener para el evento 'error' del iframe
     iframe.addEventListener('error', function (event) {
-      console.log('Ha ocurrido un error al cargar el iframe:', event);
+      console.error('iframe: ha ocurrido un error al cargarlo:', event);
       // Puedes manejar el error o realizar acciones adicionales en caso de que falle la carga del iframe
     });
 
